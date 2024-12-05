@@ -1,0 +1,253 @@
+-- Habilitar claves foráneas en SQLite
+PRAGMA foreign_keys = ON;
+
+-- Tabla usuarios
+CREATE TABLE usuarios (
+    usuario_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    contraseña TEXT NOT NULL,
+    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla contenido
+CREATE TABLE contenido (
+    contenido_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tipo TEXT NOT NULL, -- 'pelicula' o 'serie'
+    titulo TEXT NOT NULL,
+    anio INTEGER NOT NULL,
+    genero TEXT NOT NULL,
+    sinopsis TEXT,
+    temporadas INTEGER -- Solo para series
+);
+
+-- Tabla actores
+CREATE TABLE actores (
+    actor_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    apellido TEXT NOT NULL
+);
+
+-- Tabla roles
+CREATE TABLE roles (
+    rol_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    contenido_id INTEGER NOT NULL,
+    actor_id INTEGER NOT NULL,
+    personaje TEXT,
+    FOREIGN KEY (contenido_id) REFERENCES contenido(contenido_id),
+    FOREIGN KEY (actor_id) REFERENCES actores(actor_id)
+);
+
+-- Tabla favoritos
+CREATE TABLE favoritos (
+    favorito_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    usuario_id INTEGER NOT NULL,
+    contenido_id INTEGER NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
+    FOREIGN KEY (contenido_id) REFERENCES contenido(contenido_id)
+);
+
+-- Tabla alquileres
+CREATE TABLE alquileres (
+    alquiler_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    usuario_id INTEGER NOT NULL,
+    contenido_id INTEGER NOT NULL,
+    fecha_alquiler DATETIME DEFAULT CURRENT_TIMESTAMP,
+    fecha_devolucion DATETIME,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
+    FOREIGN KEY (contenido_id) REFERENCES contenido(contenido_id)
+);
+
+
+
+
+INSERT INTO contenido (tipo, titulo, anio, genero, sinopsis, temporadas) VALUES 
+('pelicula', 'El Padrino', 1972, 'Drama', 'La historia épica de una familia criminal en los Estados Unidos.', NULL),
+('pelicula', 'El Caballero Oscuro', 2008, 'Acción', 'Batman enfrenta al Joker en su lucha por proteger Gotham.', NULL),
+('pelicula', 'Pulp Fiction', 1994, 'Crimen', 'Historias entrelazadas de crimen, redención y venganza.', NULL),
+('pelicula', 'El Señor de los Anillos: La Comunidad del Anillo', 2001, 'Fantasía', 'Un hobbit comienza una peligrosa misión para destruir un anillo mágico.', NULL),
+('pelicula', 'Forrest Gump', 1994, 'Drama', 'La extraordinaria vida de un hombre con capacidades diferentes.', NULL),
+('pelicula', 'Matrix', 1999, 'Ciencia Ficción', 'Un hacker descubre la realidad detrás de su mundo.', NULL),
+('pelicula', 'Gladiador', 2000, 'Acción', 'Un general romano busca venganza contra el emperador que lo traicionó.', NULL),
+('pelicula', 'Titanic', 1997, 'Romance', 'Una historia de amor a bordo del fatídico Titanic.', NULL),
+('pelicula', 'Inception', 2010, 'Ciencia Ficción', 'Un experto en robos de sueños enfrenta su mayor desafío.', NULL),
+('pelicula', 'El Silencio de los Inocentes', 1991, 'Thriller', 'Una joven agente del FBI busca la ayuda de un brillante psicópata.', NULL),
+('pelicula', 'Los Vengadores', 2012, 'Acción', 'Los superhéroes más poderosos del planeta se unen para salvar la Tierra.', NULL),
+('pelicula', 'Toy Story', 1995, 'Animación', 'La historia de los juguetes que cobran vida cuando no hay humanos cerca.', NULL),
+('pelicula', 'Coco', 2017, 'Animación', 'Un joven músico explora el misterioso mundo de los muertos.', NULL),
+('pelicula', 'La Vida es Bella', 1997, 'Drama', 'Un padre utiliza su ingenio para proteger a su hijo en un campo de concentración.', NULL),
+('pelicula', 'La Lista de Schindler', 1993, 'Drama', 'La historia de un hombre que salvó a cientos de judíos durante el Holocausto.', NULL),
+('pelicula', 'Star Wars: Una Nueva Esperanza', 1977, 'Ciencia Ficción', 'Un joven granjero se une a una rebelión para derrotar al Imperio.', NULL),
+('pelicula', 'Jurassic Park', 1993, 'Aventura', 'Un parque temático con dinosaurios se convierte en una pesadilla.', NULL),
+('pelicula', 'Avatar', 2009, 'Ciencia Ficción', 'Un soldado se une a los nativos de un planeta alienígena.', NULL),
+('pelicula', 'Los Increíbles', 2004, 'Animación', 'Una familia de superhéroes lucha contra un villano moderno.', NULL),
+('pelicula', 'Up', 2009, 'Animación', 'Un anciano y un niño exploran un lugar misterioso con una casa flotante.', NULL),
+('pelicula', 'Shrek', 2001, 'Animación', 'Un ogro emprende una misión para recuperar su ciénaga.', NULL),
+('pelicula', 'Harry Potter y la Piedra Filosofal', 2001, 'Fantasía', 'Un joven descubre que es un mago y asiste a una escuela de magia.', NULL),
+('pelicula', 'Frozen', 2013, 'Animación', 'Dos hermanas enfrentan una maldición de hielo mágico.', NULL),
+('pelicula', 'El Rey León', 1994, 'Animación', 'La historia épica de un joven león destinado a ser rey.', NULL),
+('pelicula', 'Buscando a Nemo', 2003, 'Animación', 'Un pez payaso busca a su hijo perdido en el océano.', NULL),
+('pelicula', 'La Bella y la Bestia', 1991, 'Animación', 'Una joven se enamora de un príncipe maldito.', NULL),
+('pelicula', 'Aladdin', 1992, 'Animación', 'Un joven y un genio enfrentan al malvado visir Jafar.', NULL),
+('pelicula', 'WALL-E', 2008, 'Animación', 'Un robot solitario descubre el amor en un mundo postapocalíptico.', NULL),
+('pelicula', 'Ratatouille', 2007, 'Animación', 'Una rata persigue su sueño de convertirse en chef en París.', NULL),
+('pelicula', 'Los Juegos del Hambre', 2012, 'Ciencia Ficción', 'Una joven lucha por sobrevivir en una competencia mortal.', NULL),
+('pelicula', 'Mad Max: Furia en el Camino', 2015, 'Acción', 'Un guerrero solitario ayuda a un grupo a escapar de un tirano.', NULL),
+('pelicula', 'Django Sin Cadenas', 2012, 'Western', 'Un esclavo liberado busca rescatar a su esposa con la ayuda de un cazarrecompensas.', NULL),
+('pelicula', 'Interestelar', 2014, 'Ciencia Ficción', 'Un grupo de astronautas busca un nuevo hogar para la humanidad.', NULL),
+('pelicula', 'El Lobo de Wall Street', 2013, 'Comedia', 'La vida escandalosa de un corredor de bolsa neoyorquino.', NULL),
+('pelicula', 'Parasite', 2019, 'Drama', 'Dos familias coreanas con vidas opuestas se entrelazan con consecuencias fatales.', NULL),
+('pelicula', 'Joker', 2019, 'Drama', 'La transformación de un hombre en el infame villano de Gotham.', NULL),
+('pelicula', 'Deadpool', 2016, 'Acción', 'Un antihéroe irreverente busca venganza mientras salva el día.', NULL),
+('pelicula', 'El Gran Showman', 2017, 'Musical', 'La historia del nacimiento del circo moderno.', NULL),
+('pelicula', 'Bohemian Rhapsody', 2018, 'Musical', 'La vida y carrera del legendario Freddie Mercury.', NULL),
+('pelicula', 'Encanto', 2021, 'Animación', 'Una familia mágica enfrenta una crisis en su hogar encantado.', NULL),
+('pelicula', 'Soul', 2020, 'Animación', 'Un músico descubre el verdadero propósito de la vida.', NULL),
+('pelicula', 'Luca', 2021, 'Animación', 'Dos amigos descubren un mundo fuera del océano.', NULL),
+('pelicula', 'Cruella', 2021, 'Drama', 'La historia de origen de la villana de 101 dálmatas.', NULL),
+('pelicula', 'Black Widow', 2021, 'Acción', 'La historia de Natasha Romanoff antes de unirse a los Vengadores.', NULL),
+('pelicula', 'Dune', 2021, 'Ciencia Ficción', 'Un joven noble enfrenta su destino en un desértico planeta alienígena.', NULL),
+('pelicula', 'Eternals', 2021, 'Ciencia Ficción', 'Un grupo de seres inmortales protege a la Tierra de una antigua amenaza.', NULL),
+('pelicula', 'Spider-Man: No Way Home', 2021, 'Acción', 'Peter Parker enfrenta enemigos del multiverso.', NULL),
+('pelicula', 'Doctor Strange', 2016, 'Ciencia Ficción', 'Un médico se convierte en un maestro de las artes místicas.', NULL);
+
+INSERT INTO contenido (tipo, titulo, anio, genero, sinopsis, temporadas) VALUES
+('pelicula', 'Avatar', 2009, 'Ciencia Ficción', 'Un ex-marine se infiltra en un mundo alienígena, pero se enamora de sus habitantes.', NULL),
+('pelicula', 'The Godfather', 1972, 'Crimen', 'La historia de una familia de mafiosos y sus conflictos internos.', NULL),
+('pelicula', 'Forrest Gump', 1994, 'Drama', 'Un hombre con un IQ bajo vive una vida increíble llena de eventos históricos.', NULL),
+('pelicula', 'Jurassic Park', 1993, 'Ciencia Ficción', 'Un parque de dinosaurios se convierte en un desastre cuando los animales se escapan.', NULL),
+('pelicula', 'The Shawshank Redemption', 1994, 'Drama', 'Un hombre es injustamente condenado a prisión, pero forja una amistad con un compañero de celda.', NULL),
+('pelicula', 'The Matrix Reloaded', 2003, 'Ciencia Ficción', 'La secuela de la historia de Neo y su lucha contra las máquinas.', NULL),
+('pelicula', 'Gladiator', 2000, 'Acción', 'Un general romano busca vengar la muerte de su familia y su caída en desgracia.', NULL),
+('pelicula', 'The Lion King', 1994, 'Animación', 'Un joven león debe reclamar su lugar como rey tras la muerte de su padre.', NULL),
+('pelicula', 'Pulp Fiction', 1994, 'Crimen', 'Varios relatos interconectados sobre crimen, redención y violencia en Los Ángeles.', NULL),
+('pelicula', 'The Dark Knight Rises', 2012, 'Acción', 'Bruce Wayne regresa como Batman para enfrentar una nueva amenaza terrorista.', NULL);
+
+
+
+
+INSERT INTO contenido (tipo, titulo, anio, genero, sinopsis, temporadas) VALUES 
+('serie', 'Breaking Bad', 2008, 'Drama', 'Un profesor de química convertido en narcotraficante lucha por su familia.', 5),
+('serie', 'Game of Thrones', 2011, 'Fantasía', 'Familias nobles compiten por el control del Trono de Hierro.', 8),
+('serie', 'Stranger Things', 2016, 'Ciencia Ficción', 'Un grupo de niños enfrenta fuerzas sobrenaturales en su pueblo.', 5),
+('serie', 'The Walking Dead', 2010, 'Terror', 'Un grupo de sobrevivientes enfrenta un apocalipsis zombi.', 11),
+('serie', 'The Crown', 2016, 'Drama', 'La historia de la reina Isabel II y los eventos históricos de su reinado.', 6),
+('serie', 'Friends', 1994, 'Comedia', 'Seis amigos navegan la vida y el amor en Nueva York.', 10),
+('serie', 'The Office', 2005, 'Comedia', 'Un grupo de empleados trabaja en una oficina con situaciones hilarantes.', 9),
+('serie', 'Sherlock', 2010, 'Crimen', 'El famoso detective Sherlock Holmes resuelve misterios en la actualidad.', 4),
+('serie', 'House of Cards', 2013, 'Drama', 'Un político ambicioso manipula su camino al poder.', 6),
+('serie', 'The Mandalorian', 2019, 'Ciencia Ficción', 'Un cazarrecompensas protege a un misterioso niño en el universo de Star Wars.', 3),
+('serie', 'How I Met Your Mother', 2005, 'Comedia', 'Un hombre cuenta la historia de cómo conoció a la madre de sus hijos.', 9),
+('serie', 'Vikings', 2013, 'Drama', 'La historia épica de Ragnar Lothbrok, un legendario guerrero vikingo.', 6),
+('serie', 'The Witcher', 2019, 'Fantasía', 'La historia de Geralt de Rivia, un cazador de monstruos en un mundo mágico.', 3),
+('serie', 'Peaky Blinders', 2013, 'Crimen', 'Una familia criminal en Birmingham, Inglaterra, tras la Primera Guerra Mundial.', 6),
+('serie', 'Better Call Saul', 2015, 'Drama', 'El origen del abogado Saul Goodman, previo a los eventos de Breaking Bad.', 6),
+('serie', 'Money Heist', 2017, 'Crimen', 'Un grupo de ladrones organiza un complejo robo a la Casa de la Moneda.', 5),
+('serie', 'Dark', 2017, 'Ciencia Ficción', 'Una serie de desapariciones conecta tres generaciones en un pueblo alemán.', 3),
+('serie', 'The Boys', 2019, 'Acción', 'Un grupo de vigilantes lucha contra superhéroes corruptos.', 4),
+('serie', 'Westworld', 2016, 'Ciencia Ficción', 'Un parque temático con robots se convierte en un lugar de caos y revelaciones.', 4),
+('serie', 'The Simpsons', 1989, 'Animación', 'Las aventuras de una familia peculiar en la ciudad de Springfield.', 35);
+
+INSERT INTO contenido (tipo, titulo, anio, genero, sinopsis, temporadas) VALUES
+('serie', 'Narcos', 2015, 'Crimen', 'La vida del infame narcotraficante colombiano Pablo Escobar y el auge del Cartel de Medellín.', 3),
+('serie', 'Stranger Things', 2016, 'Ciencia Ficción', 'Un grupo de niños enfrenta fuerzas sobrenaturales en su pueblo.', 5),
+('serie', 'Fargo', 2014, 'Crimen', 'Una serie de crímenes bizarros que siguen a varios personajes relacionados con el crimen.', 4),
+('serie', 'Black Mirror', 2011, 'Ciencia Ficción', 'Cada episodio es una historia independiente que explora la relación de la tecnología con la sociedad.', 5),
+('serie', 'The Haunting of Hill House', 2018, 'Terror', 'Una familia se enfrenta a los horrores de una mansión embrujada.', 1),
+('serie', 'Mindhunter', 2017, 'Crimen', 'Dos agentes del FBI investigan a los asesinos seriales más peligrosos para entender sus motivaciones.', 2),
+('serie', 'The Boys', 2019, 'Acción', 'Un grupo de vigilantes lucha contra superhéroes corruptos.', 4),
+('serie', 'Chernobyl', 2019, 'Drama', 'La reconstrucción del desastre de Chernobyl y sus consecuencias.', 1),
+('serie', 'The Umbrella Academy', 2019, 'Acción', 'Un grupo de hermanos adoptivos con habilidades especiales debe salvar al mundo.', 3),
+('serie', 'Naruto', 2002, 'Animación', 'Un joven ninja busca convertirse en el líder de su aldea mientras enfrenta poderosos enemigos.', 10);
+
+
+
+INSERT INTO roles (contenido_id, actor_id, personaje) VALUES
+(1, 1, 'Dom Cobb'), -- Leonardo DiCaprio en "Inception"
+(2, 2, 'Jack Dawson'), -- Kate Winslet en "Titanic"
+(3, 3, 'Bruce Wayne / Batman'), -- Christian Bale en "The Dark Knight"
+(4, 4, 'Joker'), -- Heath Ledger en "The Dark Knight"
+(5, 5, 'Max Rockatansky'), -- Tom Hardy en "Mad Max: Fury Road"
+(6, 6, 'Furiosa'), -- Charlize Theron en "Mad Max: Fury Road"
+(7, 7, 'Ethan Hunt'), -- Tom Cruise en "Mission: Impossible - Fallout"
+(8, 8, 'Neo'), -- Keanu Reeves en "The Matrix"
+(9, 9, 'Morpheus'), -- Laurence Fishburne en "The Matrix"
+(10, 10, 'Elsa'), -- Idina Menzel en "Frozen"
+(11, 11, 'Walter White'), -- Bryan Cranston en "Breaking Bad"
+(12, 12, 'Daenerys Targaryen'), -- Emilia Clarke en "Game of Thrones"
+(13, 13, 'Eleven'), -- Millie Bobby Brown en "Stranger Things"
+(14, 14, 'Rick Grimes'), -- Andrew Lincoln en "The Walking Dead"
+(15, 15, 'Rachel Green'), -- Jennifer Aniston en "Friends"
+(16, 16, 'Michael Scott'), -- Steve Carell en "The Office"
+(17, 17, 'Sherlock Holmes'), -- Benedict Cumberbatch en "Sherlock"
+(18, 18, 'Geralt of Rivia'), -- Henry Cavill en "The Witcher"
+(19, 19, 'Tommy Shelby'), -- Cillian Murphy en "Peaky Blinders"
+(20, 20, 'Baby Yoda'), -- Personaje ficticio en "The Mandalorian";
+
+INSERT INTO roles (contenido_id, actor_id, personaje) VALUES
+(11, 21, 'Jake Sully'), -- Sam Worthington en "Avatar"
+(12, 22, 'Vito Corleone'), -- Marlon Brando en "The Godfather"
+(13, 23, 'Forrest Gump'), -- Tom Hanks en "Forrest Gump"
+(14, 24, 'Dr. Alan Grant'), -- Sam Neill en "Jurassic Park"
+(15, 25, 'Red'), -- Morgan Freeman en "The Shawshank Redemption"
+(16, 26, 'Neo'), -- Keanu Reeves en "The Matrix Reloaded"
+(17, 27, 'Maximus Decimus Meridius'), -- Russell Crowe en "Gladiator"
+(18, 28, 'Simba'), -- Matthew Broderick en "The Lion King"
+(19, 29, 'Vincent Vega'), -- John Travolta en "Pulp Fiction"
+(20, 30, 'Bruce Wayne / Batman'), -- Christian Bale en "The Dark Knight Rises"
+(21, 31, 'Pablo Escobar'), -- Wagner Moura en "Narcos"
+(22, 32, 'Joyce Byers'), -- Winona Ryder en "Stranger Things"
+(23, 33, 'Lorne Malvo'), -- Billy Bob Thornton en "Fargo"
+(24, 34, 'Daniel Kaluuya'), -- Actor en "Black Mirror"
+(25, 35, 'Shirley Jackson'), -- Elizabeth Reaser en "The Haunting of Hill House"
+(26, 36, 'Holden Ford'), -- Jonathan Groff en "Mindhunter"
+(27, 37, 'Billy Butcher'), -- Karl Urban en "The Boys"
+(28, 38, 'Valery Legasov'), -- Jared Harris en "Chernobyl"
+(29, 39, 'Vanya Hargreeves'), -- Ellen Page en "The Umbrella Academy"
+(30, 40, 'Naruto Uzumaki'); -- Personaje ficticio en "Naruto"
+
+
+
+INSERT INTO actores (actor_id, nombre, apellido) VALUES
+(1, 'Leonardo', 'DiCaprio'), -- Actor en "Inception"
+(2, 'Kate', 'Winslet'), -- Actriz en "Titanic"
+(3, 'Christian', 'Bale'), -- Actor en "The Dark Knight"
+(4, 'Heath', 'Ledger'), -- Actor en "The Dark Knight"
+(5, 'Tom', 'Hardy'), -- Actor en "Mad Max: Fury Road"
+(6, 'Charlize', 'Theron'), -- Actriz en "Mad Max: Fury Road"
+(7, 'Tom', 'Cruise'), -- Actor en "Mission: Impossible - Fallout"
+(8, 'Keanu', 'Reeves'), -- Actor en "The Matrix"
+(9, 'Laurence', 'Fishburne'), -- Actor en "The Matrix"
+(10, 'Idina', 'Menzel'), -- Actriz en "Frozen"
+(11, 'Bryan', 'Cranston'), -- Actor en "Breaking Bad"
+(12, 'Emilia', 'Clarke'), -- Actriz en "Game of Thrones"
+(13, 'Millie Bobby', 'Brown'), -- Actriz en "Stranger Things"
+(14, 'Andrew', 'Lincoln'), -- Actor en "The Walking Dead"
+(15, 'Jennifer', 'Aniston'), -- Actriz en "Friends"
+(16, 'Steve', 'Carell'), -- Actor en "The Office"
+(17, 'Benedict', 'Cumberbatch'), -- Actor en "Sherlock"
+(18, 'Henry', 'Cavill'), -- Actor en "The Witcher"
+(19, 'Cillian', 'Murphy'), -- Actor en "Peaky Blinders"
+(20, 'Baby', 'Yoda'); -- Personaje ficticio en "The Mandalorian"
+
+INSERT INTO actores (actor_id, nombre, apellido) VALUES
+(21, 'Sam', 'Worthington'), -- Actor en "Avatar"
+(22, 'Marlon', 'Brando'), -- Actor en "The Godfather"
+(23, 'Tom', 'Hanks'), -- Actor en "Forrest Gump"
+(24, 'Sam', 'Neill'), -- Actor en "Jurassic Park"
+(25, 'Morgan', 'Freeman'), -- Actor en "The Shawshank Redemption"
+(26, 'Keanu', 'Reeves'), -- Actor en "The Matrix Reloaded"
+(27, 'Russell', 'Crowe'), -- Actor en "Gladiator"
+(28, 'Matthew', 'Broderick'), -- Actor en "The Lion King"
+(29, 'John', 'Travolta'), -- Actor en "Pulp Fiction"
+(30, 'Christian', 'Bale'), -- Actor en "The Dark Knight Rises"
+(31, 'Wagner', 'Moura'), -- Actor en "Narcos"
+(32, 'Winona', 'Ryder'), -- Actriz en "Stranger Things"
+(33, 'Billy', 'Bob Thornton'), -- Actor en "Fargo"
+(34, 'Daniel', 'Kaluuya'), -- Actor en "Black Mirror"
+(35, 'Elizabeth', 'Reaser'), -- Actriz en "The Haunting of Hill House"
+(36, 'Jonathan', 'Groff'), -- Actor en "Mindhunter"
+(37, 'Karl', 'Urban'), -- Actor en "The Boys"
+(38, 'Jared', 'Harris'), -- Actor en "Chernobyl"
+(39, 'Ellen', 'Page'), -- Actriz en "The Umbrella Academy"
+(40, 'Naruto', 'Uzumaki'); -- Personaje ficticio en "Naruto"
