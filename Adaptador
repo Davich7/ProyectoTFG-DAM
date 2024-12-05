@@ -1,0 +1,17 @@
+class ContenidoAdapter(
+    private var listaContenido: List<Contenido>,
+    private val onFavoritoClick: (Contenido) -> Unit
+) : RecyclerView.Adapter<ContenidoAdapter.ContenidoViewHolder>() {
+
+    fun actualizarLista(nuevaLista: List<Contenido>) {
+        listaContenido = nuevaLista
+        notifyDataSetChanged()
+    }
+
+    override fun onBindViewHolder(holder: ContenidoViewHolder, position: Int) {
+        val item = listaContenido[position]
+        holder.favorito.setOnClickListener {
+            onFavoritoClick(item)
+        }
+    }
+}
