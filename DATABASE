@@ -57,7 +57,9 @@ CREATE TABLE alquileres (
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id),
     FOREIGN KEY (contenido_id) REFERENCES contenido(contenido_id)
 );
-
+--¡¡¡IMPORTANTE!!!
+-- esta tabla esta creada segun la estructura que hicimos pero no hay creada ningun tipo de funcionalidad
+-- para ella, a la hora de importar seria conveniente eliminarla en el caso de que no se vaya a usar
 
 
 
