@@ -1,0 +1,61 @@
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var dbHelper: SQLiteHelper
+    private lateinit var adapter: ContenidoAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // Inicializar la base de datos
+        dbHelper = SQLiteHelper(this)
+
+        // Configurar Spinner
+        val spinner: Spinner = findViewById(R.id.spinner_opciones)
+        val opciones = listOf("Películas", "Series", "Actores")
+        val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, opciones)
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = spinnerAdapter
+
+        // Configurar RecyclerView
+        val recyclerView: RecyclerView = findViewById(R.id.recycler_contenido)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = ContenidoAdapter(emptyList()) { contenido ->
+            // Marcar como favorito/desmarcar
+            dbHelper.actualizarFavorito(contenido.id, !contenido.favorito)
+            actualizarLista()
+        }
+        recyclerView.adapter = adapter
+
+        // Manejar selección en el Spinner
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                val seleccion = opciones[position]
+                when (seleccion) {
+                    "Películas" -> filtrarContenido("pelicula")
+                    "Series" -> filtrarContenido("serie")
+                    "Actores" -> mostrarActores()
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {}
+        }
+
+        // Mostrar lista inicial (películas por defecto)
+        filtrarContenido("pelicula")
+    }
+
+    private fun filtrarContenido(tipo: String) {
+        val contenido = dbHelper.obtenerContenidoPorTipo(tipo)
+        adapter.actualizarLista(contenido)
+    }
+
+    private fun mostrarActores() {
+        val actores = dbHelper.obtenerActores()
+        Toast.makeText(this, "Actores: ${actores.joinToString(", ")}", Toast.LENGTH_LONG).show()
+    }
+
+    private fun actualizarLista() {
+        filtrarContenido("pelicula") // Actualiza la lista al cambiar favoritos
+    }
+}
