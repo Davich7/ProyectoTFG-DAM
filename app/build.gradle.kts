@@ -3,9 +3,17 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.androidxRoom)
+
+    id("androidx.room") version "2.6.1"
 
 
+
+}
+
+// For KSP
+ksp {
+    arg("option_name", "option_value")
+    // other options...
 }
 
 android {
@@ -20,6 +28,15 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += mapOf(
+                    "option_name" to "option_value",
+                    // other options...
+                )
+            }
+        }
     }
 
     buildTypes {
@@ -40,6 +57,10 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+
+    room {
+        schemaDirectory("$projectDir/schemas")
     }
 }
 
@@ -62,20 +83,18 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // Dependencias para Room y SQLite
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.sqliteBundled)
+
+    val room_version = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")// Dependencia para corrutinas y Flow
+    ksp("androidx.room:room-compiler:$room_version")
+
+    annotationProcessor("androidx.room:room-compiler:$room_version")
 
 }
 
-room {
-    schemaDirectory("$projectDir/schemas") // define el directorio de los esquemas de Room
-}
 
-// KSP para Room (Compilador) debido a que no puede ir junto al resto de dependencias
-dependencies{
-    ksp(libs.androidx.room.compiler)
-}
 
 
 

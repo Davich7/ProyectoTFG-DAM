@@ -10,9 +10,9 @@ activityCompose = "1.8.0"
 composeBom = "2024.04.01"
 lifecycleViewmodelAndroid = "2.8.7"
 
-ksp = "2.1.0-1.0.29"
-androix-room = "2.7.0-alpha11"
+ksp = "2.0.0-1.0.21"
 androix-sqliteBundled = "2.2.0-alpha01"
+room = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,8 +31,8 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-lifecycle-viewmodel-android = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-android", version.ref = "lifecycleViewmodelAndroid" }
 
-androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androix-room"}
-androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androix-room"}
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 androidx-sqliteBundled = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref = "androix-sqliteBundled"}
 
 [plugins]
@@ -41,4 +41,3 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-androidxRoom = { id = "androidx.room", version.ref = "androix-room"}

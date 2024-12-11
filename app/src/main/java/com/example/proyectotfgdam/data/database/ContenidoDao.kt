@@ -32,8 +32,8 @@ interface ContenidoDao {
     fun buscarContenidoPorTitulo(titulo: String): Flow<List<Contenido>>
 
     // Buscar contenido por ID
-    @Query("SELECT * FROM contenido WHERE contenido_id = :id")
-    suspend fun buscarContenidoPorId(id: Int): Contenido?
+    //@Query("SELECT * FROM contenido WHERE contenido_id = :id")
+    //suspend fun buscarContenidoPorId(id: Int): Contenido?
 
     // Buscar todas las series (tipo = 'serie')
     @Query("SELECT * FROM contenido WHERE tipo = 'serie'")
