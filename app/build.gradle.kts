@@ -2,6 +2,10 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.androidxRoom)
+
+
 }
 
 android {
@@ -58,6 +62,23 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-
+    // Dependencias para Room y SQLite
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.sqliteBundled)
 
 }
+
+room {
+    schemaDirectory("$projectDir/schemas") // define el directorio de los esquemas de Room
+}
+
+// KSP para Room (Compilador) debido a que no puede ir junto al resto de dependencias
+dependencies{
+    ksp(libs.androidx.room.compiler)
+}
+
+
+
+
+
+

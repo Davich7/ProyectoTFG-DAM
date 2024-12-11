@@ -136,7 +136,7 @@ fun SeccionInicio(titulo: String, peliculasViewModel: PeliculasViewModel) {
         Text(
             text = titulo,
             style = MaterialTheme.typography.bodyLarge.copy(
-                color = MaterialTheme.colorScheme.onBackground
+                color = MaterialTheme.colorScheme.onPrimary
             ),
             modifier = Modifier.padding(bottom = 8.dp)
         )
@@ -332,8 +332,6 @@ fun MyBotBar() {
         }
     }
 }
-
-
 
 
 
