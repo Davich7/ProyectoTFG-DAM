@@ -1,16 +1,17 @@
 package com.example.proyectotfgdam.data
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 
-@Entity(tableName = "contenido")
+
 data class Contenido(
-    @PrimaryKey(autoGenerate = true) val contenidoId: Int = 0, // Clave primaria autogenerada
-    val tipo: String, // 'pelicula' o 'serie'
-    val titulo: String, // Título del contenido
-    val anio: Int, // Año de lanzamiento
-    val genero: String, // Género del contenido
-    val sinopsis: String?, // Sinopsis (puede ser null)
-    val temporadas: Int? // Solo para series (puede ser null para películas)
+    val id: Int,
+    @DrawableRes val imageResourceId: Int,
+    @StringRes val titulo: Int,
+    @StringRes val anio: Int,
+    @StringRes val genero: Int,
+    @StringRes val sinopsis: Int,
+    @StringRes val temporadas: Int,
+    val esFavorito: Boolean = false // Nuevo atributo, por defecto será 'false'
 )
 

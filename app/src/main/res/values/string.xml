@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tipo">Contenido</string>
+
+
+    <string name="El_Padrino_titulo">El Padrino</string>
+    <string name="El_Padrino_anio">1972</string>
+    <string name="El_Padrino_genero">Drama</string>
+    <string name="El_Padrino_sinopsis">La historia épica de una familia criminal en los Estados Unidos.</string>
+    <string name="El_Padrino_tempradas">0</string>
+
+
+    <string name="El_Caballero_Oscuro_titulo">El Caballero Oscuro</string>
+    <string name="El_Caballero_Oscuro_anio">2008</string>
+    <string name="El_Caballero_Oscuro_genero">Acción</string>
+    <string name="El_Caballero_Oscuro_sinopsis">Batman enfrenta al Joker en su lucha por proteger Gotham.</string>
+    <string name="El_Caballero_Oscuro_temporadas">0</string>
+
+
+
+    <string name="Pulp_Fiction_titulo">Pulp Fiction</string>
+    <string name="Pulp_Fiction_anio">1994</string>
+    <string name="Pulp_Fiction_genero">Crimen</string>
+    <string name="Pulp_Fiction_sinopsis">Historias entrelazadas de crimen, redención y venganza.</string>
+    <string name="Pulp_Fiction_temporadas">0</string>
+
+
+
+    <string name="El_Senor_de_los_Anillos">El Señor de los Anillos: La Comunidad del Anillo</string>
+    <string name="El_Senor_de_los_Anillos_anio">2001</string>
+    <string name="El_Senor_de_los_Anillos_genero">Fantasía</string>
+    <string name="El_Senor_de_los_Anillos_sinopsis">Un hobbit comienza una peligrosa misión para destruir un anillo mágico.</string>
+    <string name="El_Senor_de_los_Anillos_temproadas">0</string>
+
+
+    <string name="Forrest_Gump_titulo">Forrest Gump</string>
+    <string name="Forrest_Gump_anio">1994</string>
+    <string name="Forrest_Gump_genero">Drama</string>
+    <string name="Forrest_Gump_sinopsis">La extraordinaria vida de un hombre con capacidades diferentes.</string>
+    <string name="Forrest_Gump_temporadas">0</string>
+
+
+    <string name="Matrix_titulo">Matrix</string>
+    <string name="Matrix_anio">1999</string>
+    <string name="Matrix_genero">Ciencia Ficción</string>
+    <string name="Matrix_sinopsis">Un hacker descubre la realidad detrás de su mundo.</string>
+    <string name="Matrix_temporadas">0</string>
+
+
+    <string name="Gladiador_titulo">Gladiador</string>
+    <string name="Gladiador_anio">2000</string>
+    <string name="Gladiador_genero">Acción</string>
+    <string name="Gladiador_sinopsis">Un general romano busca venganza contra el emperador que lo traicionó.</string>
+    <string name="Gladiador_temporadas">0</string>
+
+
+    <string name="Titanic_titulo">Titanic</string>
+    <string name="Titanic_anio">1997</string>
+    <string name="Titanic_genero">Drama</string>
+    <string name="Titanic_sinopsis">Una historia de amor a bordo del fatídico Titanic.</string>
+    <string name="Titanic_temporadas">0</string>
+
+
+    <string name="Inception_titulo">Inception</string>
+    <string name="Inception_anio">2010</string>
+    <string name="Inception_genero">Ciencia Ficción</string>
+    <string name="Inception_sinopsis">Un experto en robos de sueños enfrenta su mayor desafío.</string>
+    <string name="Inception_temporadas">0</string>
+
+
+    <string name="El_Silencio_de_los_Inocentes_titulo">El Silencio de los Inocentes</string>
+    <string name="El_Silencio_de_los_Inocentes_anio">1991</string>
+    <string name="El_Silencio_de_los_Inocentes_genero">Thriller</string>
+    <string name="El_Silencio_de_los_Inocentes_sinopsis">Una joven agente del FBI busca la ayuda de un brillante psicópata.</string>
+    <string name="El_Silencio_de_los_Inocentes_temporadas">Una joven agente del FBI busca la ayuda de un brillante psicópata.</string>
+
+
+    <string name="Los_Vengadores_titulo">Los Vengadores</string>
+    <string name="Los_Vengadores_anio">2012</string>
+    <string name="Los_Vengadores_genero">Acción</string>
+    <string name="Los_Vengadores_sinopsis">Los superhéroes más poderosos del planeta se unen para salvar la Tierra.</string>
+    <string name="Los_Vengadores_temporadas">0</string>
+
+
+    <string name="Toy_Story_titulo">Toy Story</string>
+    <string name="Toy_Story_anio">1995</string>
+    <string name="Toy_Story_genero">Animación</string>
+    <string name="Toy_Story_sinopsis">La historia de los juguetes que cobran vida cuando no hay humanos cerca.</string>
+    <string name="Toy_Story_temporadas">0</string>
+
+
+    <string name="Coco_titulo">Coco</string>
+    <string name="Coco_anio">2017</string>
+    <string name="Coco_genero">Animación</string>
+    <string name="Coco_sinopsis">Un joven músico explora el misterioso mundo de los muertos.</string>
+    <string name="Coco_temporadas">0</string>
+
+
+    <string name="La_Vida_es_Bella_titulo">La Vida es Bella</string>
+    <string name="La_Vida_es_Bella_anio">1997</string>
+    <string name="La_Vida_es_Bella_genero">Drama</string>
+    <string name="La_Vida_es_Bella_sinopsis">Un padre utiliza su ingenio para proteger a su hijo en un campo de concentración.</string>
+    <string name="La_Vida_es_Bella_temporadas">0</string>
+
+
+    <string name="La_Lista_de_Schindler_titulo">La Lista de Schindler</string>
+    <string name="La_Lista_de_Schindler_anio">1993</string>
+    <string name="La_Lista_de_Schindler_genero">Drama</string>
+    <string name="La_Lista_de_Schindler_sinopsis">La historia de un hombre que salvó a cientos de judíos durante el Holocausto.</string>
+    <string name="La_Lista_de_Schindler_temporadas">0</string>
+
+
+    <string name="Star_Wars_Una_Nueva_Esperanza_titulo">Star Wars: Una Nueva Esperanza</string>
+    <string name="Star_Wars_Una_Nueva_Esperanza_anio">1977</string>
+    <string name="Star_Wars_Una_Nueva_Esperanza_genero">Ciencia Ficción</string>
+    <string name="Star_Wars_Una_Nueva_Esperanza_sinopsis">Un joven granjero se une a una rebelión para derrotar al Imperio.</string>
+    <string name="Star_Wars_Una_Nueva_Esperanza_temporadas">0</string>
+
+
+    <string name="Jurassic_Park_titulo">Jurassic Park</string>
+    <string name="Jurassic_Park_anio">1993</string>
+    <string name="Jurassic_Park_genero">Aventura</string>
+    <string name="Jurassic_Park_sinopsis">Un parque temático con dinosaurios se convierte en una pesadilla.</string>
+    <string name="Jurassic_Park_temporadas">0</string>
+
+
+    <string name="Avatar_titulo">Avatar</string>
+    <string name="Avatar_anio">2009</string>
+    <string name="Avatar_genero">Ciencia Ficción</string>
+    <string name="Avatar_sinopsis">Un soldado se une a los nativos de un planeta alienígena.</string>
+    <string name="Avatar_temporadas">0</string>
+
+
+    <string name="Los_Increibles_titulo">Los Increíbles</string>
+    <string name="Los_Increibles_anio">2004</string>
+    <string name="Los_Increibles_genero">Animación</string>
+    <string name="Los_Increibles_sinopsis">Una familia de superhéroes lucha contra un villano moderno.</string>
+    <string name="Los_Increibles_temporadas">0</string>
+
+
+    <string name="Up_titulo">Up</string>
+    <string name="Up_anio">2009</string>
+    <string name="Up_genero">Animación</string>
+    <string name="Up_sinopsis">Un anciano y un niño exploran un lugar misterioso con una casa flotante.</string>
+    <string name="Up_temporadas">0</string>
+
+
+    <string name="Shrek_titulo">Shrek</string>
+    <string name="Shrek_anio">2001</string>
+    <string name="Shrek_genero">Animación</string>
+    <string name="Shrek_sinopsis">Un ogro emprende una misión para recuperar su ciénaga.</string>
+    <string name="Shrek_temporadas">0</string>
+
+
+    <string name="Harry_Potter_y_la_Piedra_Filosofal_titulo">Harry Potter y la Piedra Filosofal</string>
+    <string name="Harry_Potter_y_la_Piedra_Filosofal_anio">2001</string>
+    <string name="Harry_Potter_y_la_Piedra_Filosofal_genero">Fantasía</string>
+    <string name="Harry_Potter_y_la_Piedra_Filosofal_sinopsis">Un joven descubre que es un mago y asiste a una escuela de magia.</string>
+    <string name="Harry_Potter_y_la_Piedra_Filosofal_temporadas">0</string>
+
+
+    <string name="Breaking_Bad_titulo">Breaking Bad</string>
+    <string name="Breaking_Bad_anio">2008</string>
+    <string name="Breaking_Bad_genero">Drama</string>
+    <string name="Breaking_Bad_sinopsis">Un profesor de química convertido en narcotraficante lucha por su familia.</string>
+    <string name="Breaking_Bad_temporadas">5</string>
+
+
+    <string name="Game_of_Thrones_titulo">Game of Thrones</string>
+    <string name="Game_of_Thrones_anio">2011</string>
+    <string name="Game_of_Thrones_genero">Fantasía</string>
+    <string name="Game_of_Thrones_sinopsis">Familias nobles compiten por el control del Trono de Hierro.</string>
+    <string name="Game_of_Thrones_temporadas">8</string>
+
+
+    <string name="Stranger_Things_titulo">Stranger Things</string>
+    <string name="Stranger_Things_anio">2016</string>
+    <string name="Stranger_Things_genero">Ciencia Ficción</string>
+    <string name="Stranger_Things_sinopsis">Un grupo de niños enfrenta fuerzas sobrenaturales en su pueblo.</string>
+    <string name="Stranger_Things_temporadas">5</string>
+
+
+    <string name="The_Walking_Dead_titulo">The Walking Dead</string>
+    <string name="The_Walking_Dead_anio">2010</string>
+    <string name="The_Walking_Dead_genero">Terror</string>
+    <string name="The_Walking_Dead_sinopsis">Un grupo de sobrevivientes enfrenta un apocalipsis zombi.</string>
+    <string name="The_Walking_Dead_temporadas">11</string>
+
+
+    <string name="The_Crown_titulo">The Crown</string>
+    <string name="The_Crown_anio">2016</string>
+    <string name="The_Crown_genero">Drama</string>
+    <string name="The_Crown_sinopsis">La historia de la reina Isabel II y los eventos históricos de su reinado.</string>
+    <string name="The_Crown_temporadas">6</string>
+
+
+    <string name="Friends_titulo">Friends</string>
+    <string name="Friends_anio">1994</string>
+    <string name="Friends_genero">Comedia</string>
+    <string name="Friends_sinopsis">Seis amigos navegan la vida y el amor en Nueva York.</string>
+    <string name="Friends_temporadas">10</string>
+
+
+    <string name="The_Office_titulo">The Office</string>
+    <string name="The_Office_anio">2005</string>
+    <string name="The_Office_genero">Comedia</string>
+    <string name="The_Office_sinopsis">Un grupo de empleados trabaja en una oficina con situaciones hilarantes.</string>
+    <string name="The_Office_temporadas">9</string>
+
+
+    <string name="Sherlock_titulo">Sherlock</string>
+    <string name="Sherlock_anio">2010</string>
+    <string name="Sherlock_genero">Crimen</string>
+    <string name="Sherlock_sinopsis">El famoso detective Sherlock Holmes resuelve misterios en la actualidad.</string>
+    <string name="Sherlock_temporadas">4</string>
+
+
+    <string name="House_of_Cards_titulo">House of Cards</string>
+    <string name="House_of_Cards_anio">2013</string>
+    <string name="House_of_Cards_genero">Drama</string>
+    <string name="House_of_Cards_sinopsis">Un político ambicioso manipula su camino al poder.</string>
+    <string name="House_of_Cards_temporadas">6</string>
+
+
+    <string name="The_Mandalorian_titulo">The Mandalorian</string>
+    <string name="The_Mandalorian_anio">2019</string>
+    <string name="The_Mandalorian_genero">Ciencia Ficción</string>
+    <string name="The_Mandalorian_sinopsis">Un cazarrecompensas protege a un misterioso niño en el universo de Star Wars.</string>
+    <string name="The_Mandalorian_temporadas">3</string>
+
+
+    <string name="How_I_Met_Your_Mother_titulo">How I Met Your Mother</string>
+    <string name="How_I_Met_Your_Mother_anio">2005</string>
+    <string name="How_I_Met_Your_Mother_genero">Comedia</string>
+    <string name="How_I_Met_Your_Mother_sinopsis">Un hombre cuenta la historia de cómo conoció a la madre de sus hijos.</string>
+    <string name="How_I_Met_Your_Mother_temporadas">9</string>
+
+
+    <string name="Vikings_titulo">Vikings</string>
+    <string name="Vikings_anio">2013</string>
+    <string name="Vikings_genero">Drama</string>
+    <string name="Vikings_sinopsis">La historia épica de Ragnar Lothbrok, un legendario guerrero vikingo.</string>
+    <string name="Vikings_temporadas">6</string>
+
+
+    <string name="The_Witcher_titulo">The Witcher</string>
+    <string name="The_Witcher_anio">2019</string>
+    <string name="The_Witcher_genero">Fantasía</string>
+    <string name="The_Witcher_sinopsis">La historia de Geralt de Rivia, un cazador de monstruos en un mundo mágico.</string>
+    <string name="The_Witcher_temporadas">3</string>
+
+
+    <string name="Peaky_Blinders_titulo">Peaky Blinders</string>
+    <string name="Peaky_Blinders_anio">2013</string>
+    <string name="Peaky_Blinders_genero">Crimen</string>
+    <string name="Peaky_Blinders_sinopsis">Una familia criminal en Birmingham, Inglaterra, tras la Primera Guerra Mundial.</string>
+    <string name="Peaky_Blinders_temporadas">6</string>
+
+
+    <string name="Country_Rain_titulo">Country Rain</string>
+    <string name="Country_Rain_anio">2024</string>
+    <string name="Country_Rain_genero">Drama</string>
+    <string name="Country_Rain_sinopsis">Un hombre enfrentando sus demonios junto a su AX verde.</string>
+    <string name="Country_Rain_temporadas">0</string>
+</resources>
